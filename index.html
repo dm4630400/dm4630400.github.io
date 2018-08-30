@@ -57,6 +57,9 @@ jQuery(document).ready(function() {
 
 
 	jQuery(function($){
+		if (localStorage.getItem("phone") != ''){
+			 $("#phone").val(localStorage.getItem("phone"));
+		}
 	   $("#phone").mask("+7 (999) 999-99-99");
 	   $("#time").mask("99:99");
 
@@ -263,6 +266,7 @@ jQuery(document).ready(function() {
 									"entry.1107374496": comments,
 									"entry.14319854": res.viewer_id
 							});
+							localStorage.setItem("phone", phone);
 							VK.api("wall.post", {"message": "\u0417\u0430\u043a\u0430\u0437 \u0433\u0440\u0443\u0437\u0447\u0438\u043a\u043e\u0432 \u0432 \u0410\u043f\u0430\u0442\u0438\u0442\u0430\u0445 \u0438 \u041a\u0438\u0440\u043e\u0432\u0441\u043a\u0435 https://vk.com/app6643974"}, function (data) {
 								console.log("Post ID:" + data.response.post_id);
 							});
